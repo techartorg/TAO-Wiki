@@ -2,4 +2,24 @@ site_name: My Docs
 
 theme:
   name: material
-  
+
+  language: en
+  palette:
+
+  # Light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: grey
+    accent: light blue
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+
+  # Dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: indigo
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
