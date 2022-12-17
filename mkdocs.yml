@@ -1,11 +1,14 @@
 site_name: My Docs
+edit_uri: https://github.com/hannesdelbeke/notes/  # says this is default automatically set if pointing to github URL, test this.
 
 theme:
+  icon:
+    edit: material/pencil
   name: material
 
   language: en
-  palette:
 
+  palette:
   # Light mode
   - media: "(prefers-color-scheme: light)"
     scheme: default
@@ -14,7 +17,6 @@ theme:
     toggle:
       icon: material/toggle-switch-off-outline
       name: Switch to dark mode
-
   # Dark mode
   - media: "(prefers-color-scheme: dark)"
     scheme: slate
@@ -25,16 +27,17 @@ theme:
       name: Switch to light mode
 
 # Extensions
+# for standard extensions see https://python-markdown.github.io/extensions/
 markdown_extensions:
-  - footnotes
-  - nl2br
-  - attr_list
-  - sane_lists
-  - meta
-  - smarty
-  - tables
+  - footnotes  # add Footnotes[^1] support (standard)
+  - nl2br  # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
+  - attr_list  # define attributes on HTML elements (standard)
+  - sane_lists  # make list more intuitive (standard)
+  - meta # support multimarkdown style metadata (standard)
+  - smarty # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
+  - tables  # support tables (standard)
   - mdx_breakless_lists
-  - def_list
+  - def_list # create definition lists (standard)
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details
@@ -86,29 +89,29 @@ plugins:
 #hooks:
 #  - overrides/hooks/on_page_markdown.py
 #  - overrides/hooks/on_env.py
-#extra_javascript:
-#  - assets/js/mathjax.js
-#  - assets/js/utils.js
-#  - https://polyfill.io/v3/polyfill.min.js?features=es6
-#  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-#  - assets/js/tooltipster.bundle.js
-#extra_css:
-#    - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
-#    - assets/css/template/blog.css
-#    - assets/css/template/grid.css
-#    - assets/css/template/img-grids-float.css
-#    - assets/css/template/tooltipster.bundle.min.css
-#    - assets/css/template/utils.css
-#    - assets/css/admonition.css
-#    - assets/css/custom_attributes.css
-#    - assets/css/customization.css
-#extra:
-#  generator: false
-#  SEO: assets/meta/SEO.png
-#  blog_list:
-#    pagination: true
-#    pagination_message: true
-#    pagination_translation: 'posts in'
-#  hooks:
-#    strip_comments: true
-#    fix_heading: true
+extra_javascript:
+  - assets/js/mathjax.js
+  - assets/js/utils.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/js/tooltipster.bundle.js
+extra_css:
+    - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+    - assets/css/template/blog.css
+    - assets/css/template/grid.css
+    - assets/css/template/img-grids-float.css
+    - assets/css/template/tooltipster.bundle.min.css
+    - assets/css/template/utils.css
+    - assets/css/admonition.css
+    - assets/css/custom_attributes.css
+    - assets/css/customization.css
+extra:
+  generator: false
+  SEO: assets/meta/SEO.png
+  blog_list:
+    pagination: true
+    pagination_message: true
+    pagination_translation: 'posts in'
+  hooks:
+    strip_comments: true
+    fix_heading: true
