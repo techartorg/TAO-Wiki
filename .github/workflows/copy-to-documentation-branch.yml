@@ -27,10 +27,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      
+      # use {{}} to access environment variable values in parts of the workflow that are processed before jobs are sent to runners.
       - run: |
             echo $REPO_OWNER
-             echo ${{ REPO_OWNER }}
+             echo ${{ env.REPO_OWNER }}
              echo ${{ github.event.repository.name }}
              echo ${{ secrets.GITHUB_TOKEN  }}
 
@@ -46,7 +46,7 @@ jobs:
           personal_token: ${{ secrets.GITHUB_TOKEN  }}
           src_branch: main
           src_path: /notes/image/.
-          dst_owner: hannesdelbeke
+          dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /static/images/
           dst_branch: mkdocs
@@ -70,7 +70,7 @@ jobs:
           personal_token: ${{ secrets.GITHUB_TOKEN  }}
           src_branch: main
           src_path: /notes/.
-          dst_owner: hannesdelbeke
+          dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /docs/
           dst_branch: mkdocs
