@@ -82,11 +82,10 @@ jobs:
       - name: Commit copy to target branch
         run: |
           cd dst_repo_dir
-          rm -f .git/index.lock
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git add .
-          git -m "copy notes and images"
+          git commit -m "copy notes and images"
           git push
           
 # copy-readme:
