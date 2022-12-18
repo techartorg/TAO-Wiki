@@ -21,3 +21,7 @@ branch infrastructure
 
 ## contribute
 TODO local run site instructions.
+
+## license
+currently AGPL, and has to confirm to this when redistributed. (easiest is to just keep AGPL)
+This is because some python hooks were used from [obsidian-mkdocs-publisher-template](https://github.com/ObsidianPublisher/obsidian-mkdocs-publisher-template)
