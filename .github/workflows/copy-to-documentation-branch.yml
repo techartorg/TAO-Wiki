@@ -81,6 +81,7 @@ jobs:
       # browse to repo folder & commit all files
       - name: Commit copy to target branch
         run: |
+          rm -f .git/index.lock
           cd dst_repo_dir
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
