@@ -6,6 +6,6 @@
 
 [[test2]] `[[test2]]`
 
-#hashtag
+#hashtag1
 
 wiki
