@@ -17,6 +17,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
 jobs:
   copy-images:
     runs-on: ubuntu-latest
@@ -37,7 +39,7 @@ jobs:
       #   run: mkdir -p 
 
       - name: Copy Images
-        uses: andstor/copycat-action@v3
+        uses: andstor/copycat-action@v3.2.4
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN  }}
           src_branch: main
@@ -55,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Copy Markdowns
-        uses: andstor/copycat-action@v3
+        uses: andstor/copycat-action@v3.2.4
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN  }}
           src_branch: main
