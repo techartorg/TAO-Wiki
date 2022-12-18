@@ -27,11 +27,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # use {{}} to access environment variable values in parts of the workflow that are processed before jobs are sent to runners.
-      - run: |
-             echo ${{ env.REPO_OWNER }}
-             echo ${{ github.event.repository.name }}
-             echo ${{ secrets.GITHUB_TOKEN  }}
 
       # TODO run janitor on markdown input
       
@@ -42,7 +37,7 @@ jobs:
       - name: Copy Images
         uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN  }}
+          personal_token: ${{ secrets.ACTION_TOKEN  }}
           src_branch: main
           src_path: /notes/image/.
           dst_owner: ${{ env.REPO_OWNER }}
@@ -51,22 +46,16 @@ jobs:
           dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Images copied from main to documentation branch!"
-      
-      - name: print dir
-        run: tree
 
   copy-sections:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - run: |
-             echo ${{ github.event.repository.name }}
-             echo ${{ secrets.GITHUB_TOKEN  }}
       - name: Copy Markdowns
         uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN  }}
+          personal_token: ${{ secrets.ACTION_TOKEN  }}
           src_branch: main
           src_path: /notes/.
           dst_owner: ${{ env.REPO_OWNER }}
@@ -75,8 +64,7 @@ jobs:
           dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Sections copied from main to documentation branch!"
-      
-          
+       
 # copy-readme:
 #   runs-on: ubuntu-latest
 #   steps:
