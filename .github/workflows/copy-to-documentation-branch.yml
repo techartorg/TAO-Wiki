@@ -73,6 +73,11 @@ jobs:
           dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Sections copied from main to documentation branch!"
+      
+      # commit all files in the folder dst_repo_dir
+      - name: Commit copy to target branch
+        run: |
+          git status
           
 # copy-readme:
 #   runs-on: ubuntu-latest
