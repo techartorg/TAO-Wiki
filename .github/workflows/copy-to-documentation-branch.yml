@@ -1,0 +1,79 @@
+name: Copy branches main to documentation 
+
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push request events but only for the main branch
+  push:
+    branches: [main]
+
+    # inputs: TODO put variables in here for easier to config, see https://stackoverflow.com/questions/74072206
+# env: this didn't work, see below for input
+  # GITHUB_USER: hannesdelbeke
+  # GITHUB_REPO: notes
+  # BRANCH_SOURCE: main
+  # BRANCH_PUBLISH: documentation
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  copy-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare input
+        # All steps after this one will have env variable `GHA_BRANCH` passed to them.
+        - run:   echo ::set-env name=GHA_BRANCH::$(echo $GITHUB_REF | awk -F / '{print $3}')
+          shell: bash
+          
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # TODO run janitor on markdown input
+
+      - name: Copy Images
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN  }}
+          src_branch: main
+          src_path: /images/.
+          dst_owner: hannesdelbeke
+          dst_repo_name: ${{ github.event.repository.name }}
+          dst_path: /static/images/
+          dst_branch: documentation
+          clean: true  # empty dst_path before copying
+          # commit_message: "Images copied from main to documentation branch!"
+
+  # copy-sections:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - uses: actions/checkout@v2
+      - name: Copy Markdowns
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN  }}
+          src_branch: main
+          src_path: /sections/.
+          dst_owner: hannesdelbeke
+          dst_repo_name: ${{ github.event.repository.name }}
+          dst_path: /docs/
+          dst_branch: documentation
+          clean: true  # empty dst_path before copying
+          # commit_message: "Sections copied from main to documentation branch!"
+          
+# copy-readme:
+#   runs-on: ubuntu-latest
+#   steps:
+#     - uses: actions/checkout@v2
+#     - name: Copy Markdowns
+#       uses: andstor/copycat-action@v3
+#       with:
+#         personal_token: ${{ secrets.PERSONAL_TOKEN  }}
+#         src_branch: main
+#         src_path: /README.md
+#         dst_owner: andkret
+#         dst_repo_name: ${{ github.event.repository.name }}
+#         dst_path: /docs/
+#         dst_branch: documentation
+#         commit_message: "README.md copied from main to documentation branch!"
