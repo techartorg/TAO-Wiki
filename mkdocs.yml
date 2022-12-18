@@ -97,7 +97,7 @@ plugins:
     - ezlinks:
           wikilinks: true           # support [[WikiLinks]] used in e.g. Obsidian
     - mermaid2                      # interpret mermaid graphs
-    - awesome-pages                 # simplifies configuring page titles and their order
+#    - awesome-pages                 # simplifies configuring page titles and their order
     - embed_file:                   # embed files such as pdfs, e.g. ![[filename]]
           callouts: true
           custom-attributes: 'assets/css/custom_attributes.css'
