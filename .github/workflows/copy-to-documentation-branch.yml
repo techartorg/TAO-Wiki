@@ -49,11 +49,11 @@ jobs:
           clean: true  # empty dst_path before copying
           # commit_message: "Images copied from main to documentation branch!"
 
-  # copy-sections:
-  #   runs-on: ubuntu-latest
+  copy-sections:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
       - name: Copy Markdowns
         uses: andstor/copycat-action@v3
         with:
