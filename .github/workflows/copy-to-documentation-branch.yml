@@ -8,11 +8,8 @@ on:
     branches: [main]
 
     # inputs: TODO put variables in here for easier to config, see https://stackoverflow.com/questions/74072206
-# env: this didn't work, see below for input
-  # GITHUB_USER: hannesdelbeke
-  # GITHUB_REPO: notes
-  # BRANCH_SOURCE: main
-  # BRANCH_PUBLISH: documentation
+env: #this didn't work, see below for input
+  REPO_OWNER: hannesdelbeke
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,8 +18,6 @@ on:
 permissions:
   contents: write
 
-env:
-  GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
 
 jobs:
   copy-images:
@@ -31,7 +26,11 @@ jobs:
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      
       - run: |
+            echo $REPO_OWNER
+             echo ${{ REPO_OWNER }}
              echo ${{ github.event.repository.name }}
              echo ${{ secrets.GITHUB_TOKEN  }}
 
@@ -78,15 +77,6 @@ jobs:
           clean: true  # empty dst_path before copying
           commit_message: "Sections copied from main to documentation branch!"
       
-      # browse to repo folder & commit all files
-      - name: Commit copy to target branch
-        run: |
-          cd dst_repo_dir
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
-          git add .
-          git commit -m "copy notes and images"
-          git push
           
 # copy-readme:
 #   runs-on: ubuntu-latest
