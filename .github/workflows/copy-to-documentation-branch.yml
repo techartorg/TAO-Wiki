@@ -29,7 +29,6 @@ jobs:
 
       # use {{}} to access environment variable values in parts of the workflow that are processed before jobs are sent to runners.
       - run: |
-            echo $REPO_OWNER
              echo ${{ env.REPO_OWNER }}
              echo ${{ github.event.repository.name }}
              echo ${{ secrets.GITHUB_TOKEN  }}
