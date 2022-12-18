@@ -17,8 +17,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# env:
-#   GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
+env:
+  GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
 
 jobs:
   copy-images:
@@ -49,6 +49,9 @@ jobs:
           dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Images copied from main to documentation branch!"
+      
+      - name: print dir
+        run: tree
 
   copy-sections:
     runs-on: ubuntu-latest
