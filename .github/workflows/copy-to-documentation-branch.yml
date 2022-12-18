@@ -41,7 +41,7 @@ jobs:
           dst_owner: hannesdelbeke
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /static/images/
-          dst_branch: documentation
+          dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           # commit_message: "Images copied from main to documentation branch!"
 
@@ -59,7 +59,7 @@ jobs:
           dst_owner: hannesdelbeke
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /docs/
-          dst_branch: documentation
+          dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           # commit_message: "Sections copied from main to documentation branch!"
           
@@ -76,5 +76,5 @@ jobs:
 #         dst_owner: andkret
 #         dst_repo_name: ${{ github.event.repository.name }}
 #         dst_path: /docs/
-#         dst_branch: documentation
+#         dst_branch: mkdocs
 #         commit_message: "README.md copied from main to documentation branch!"
