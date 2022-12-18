@@ -30,20 +30,20 @@ theme:
 # Extensions
 # for standard extensions see https://python-markdown.github.io/extensions/
 markdown_extensions:
-  - footnotes  # add Footnotes[^1] support (standard)
-  - nl2br  # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
-  - attr_list  # define attributes on HTML elements (standard)
-  - sane_lists  # make list more intuitive (standard)
-  - meta # support multimarkdown style metadata (standard)
-  - smarty # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
-  - tables  # support tables (standard)
+  - footnotes                   # add Footnotes[^1] support (standard)
+  - nl2br                       # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
+  - attr_list                   # define attributes on HTML elements (standard), add CSS support for hashtags
+  - sane_lists                  # make list more intuitive (standard)
+  - meta                        # support multimarkdown style metadata (standard) similar to footnote
+  - smarty                      # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
+  - tables                      # support tables (standard)
   - mdx_breakless_lists
-  - def_list # create definition lists (standard)
+  - def_list                    # create definition lists (standard)
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.details  # creates collapsible elements with <details><summary>
-  - pymdownx.magiclink  # autolink URLs and emails
-  - pymdownx.critic  # allow comments in markdown, see https://facelessuser.github.io/pymdown-extensions/extensions/critic/
+  - pymdownx.details            # creates collapsible elements with <details><summary>
+  - pymdownx.magiclink          # autolink URLs and emails
+  - pymdownx.critic             # allow comments in markdown, see https://facelessuser.github.io/pymdown-extensions/extensions/critic/
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
