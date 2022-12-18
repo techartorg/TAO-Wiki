@@ -78,6 +78,10 @@ jobs:
       - name: Commit copy to target branch
         run: |
           git status
+          echo '==='
+          cd dst_repo_dir
+          echo '==='
+          git status
           
 # copy-readme:
 #   runs-on: ubuntu-latest
