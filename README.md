@@ -5,6 +5,7 @@ folder layout
 branch infrastructure
 
 ## Features
+### Done
 - [x] hashtag
 - [x] wikilinks
 - [x] dark/light theme
@@ -12,11 +13,12 @@ branch infrastructure
 - [x] table of content (page)
 - [x] various fancy markdown syntax, e.g. LaTeX, mermaid, etc.
 - [x] every page has a "edit on github" pencil in top right, which links to the page on github
+### TODO
+- [ ] configure landing page / start page
 - [ ] hashtag search click
-- [ ] preview hover link
+- [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
-- [ ] backlinks
-- [ ] submodule support **TODO**
+- [ ] submodule support for actions **TODO**
 - [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 
 ## contribute
