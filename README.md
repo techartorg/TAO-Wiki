@@ -16,7 +16,7 @@ branch infrastructure
 ### TODO
 - [ ] configure landing page / start page
 - [ ] hashtag search click
-- [ ] preview hover link
+- [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
 - [ ] submodule support for actions **TODO**
 - [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
