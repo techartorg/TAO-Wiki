@@ -3,30 +3,48 @@ edit_uri: https://github.com/hannesdelbeke/wiki/blob/main/docs  # root folder co
 site_url: https://hannesdelbeke.github.io/wiki/
 
 theme:
-    highlightjs: true
-    icon:
-        edit: material/pencil
     name: material
-
+#    logo: assets/meta/favicons.png
+#    favicon: assets/meta/favicon.png
+#    custom_dir: overrides
+#    font:
+#        text: Ubuntu
+#        code: Ubuntu Mono
     language: en
-
+#    highlightjs: true
+#    icon:
+#        edit: material/pencil
     palette:
+
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: grey
       accent: light blue
       toggle:
-          icon: material/toggle-switch-off-outline
-          name: Switch to dark mode
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       accent: indigo
       toggle:
-          icon: material/toggle-switch
-          name: Switch to light mode
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+    features:
+        - navigation.indexes
+        - navigation.top          # add back to top button when scrolling up
+#        - navigation.tabs         # add a tab bar to top of page
+#        - navigation.tabs.sticky  # keep tab bar visible when scrolling down
+        - navigation.expand: false
+        - navigation.instant      # optimize for large documentation sites such as PKM wikis
+        - navigation.tracking     # enable anchor tracking in the URL, so users can easily share links
+        - navigation.prune        # reduce the size of the built site, only visible navigation items are included in HTML
+        - search.suggest          # autocomplete in the search box
+        - search.highlight        # highlight search terms in the search results
 
 # Extensions
 # for standard extensions see https://python-markdown.github.io/extensions/
