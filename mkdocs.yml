@@ -1,103 +1,104 @@
 site_name: My Docs
 edit_uri: https://github.com/hannesdelbeke/wiki/blob/main/docs  # root folder containing the notes on main branch
+site_url: https://hannesdelbeke.github.io/wiki/
 
 theme:
-  highlightjs: true
-  icon:
-    edit: material/pencil
-  name: material
+    highlightjs: true
+    icon:
+        edit: material/pencil
+    name: material
 
-  language: en
+    language: en
 
-  palette:
-  # Light mode
-  - media: "(prefers-color-scheme: light)"
-    scheme: default
-    primary: grey
-    accent: light blue
-    toggle:
-      icon: material/toggle-switch-off-outline
-      name: Switch to dark mode
-  # Dark mode
-  - media: "(prefers-color-scheme: dark)"
-    scheme: slate
-    primary: black
-    accent: indigo
-    toggle:
-      icon: material/toggle-switch
-      name: Switch to light mode
+    palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: grey
+      accent: light blue
+      toggle:
+          icon: material/toggle-switch-off-outline
+          name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+          icon: material/toggle-switch
+          name: Switch to light mode
 
 # Extensions
 # for standard extensions see https://python-markdown.github.io/extensions/
 markdown_extensions:
-  - footnotes                   # add Footnotes[^1] support (standard)
-  - nl2br                       # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
-  - attr_list                   # define attributes on HTML elements (standard), add CSS support for hashtags
-  - sane_lists                  # make list more intuitive (standard)
-  - meta                        # support multimarkdown style metadata (standard) similar to footnote
-  - smarty                      # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
-  - tables                      # support tables (standard)
-  - mdx_breakless_lists
-  - def_list                    # create definition lists (standard)
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.details            # creates collapsible elements with <details><summary>
-  - pymdownx.magiclink          # autolink URLs and emails
-  - pymdownx.critic             # allow comments in markdown, see https://facelessuser.github.io/pymdown-extensions/extensions/critic/
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.highlight:
-      use_pygments: true
-      anchor_linenums: true
-  - pymdownx.tasklist:
-       custom_checkbox: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - admonition  # adds rST-style admonitions (standard), great for warnings
-  - toc:  # table of content
-      permalink: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid
+    - footnotes                   # add Footnotes[^1] support (standard)
+    - nl2br                       # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
+    - attr_list                   # define attributes on HTML elements (standard), add CSS support for hashtags
+    - sane_lists                  # make list more intuitive (standard)
+    - meta                        # support multimarkdown style metadata (standard) similar to footnote
+    - smarty                      # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
+    - tables                      # support tables (standard)
+    - mdx_breakless_lists
+    - def_list                    # create definition lists (standard)
+    - pymdownx.arithmatex:
+          generic: true
+    - pymdownx.details            # creates collapsible elements with <details><summary>
+    - pymdownx.magiclink          # autolink URLs and emails
+    - pymdownx.critic             # allow comments in markdown, see https://facelessuser.github.io/pymdown-extensions/extensions/critic/
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.highlight:
+          use_pygments: true
+          anchor_linenums: true
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.emoji:
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
+    - admonition  # adds rST-style admonitions (standard), great for warnings
+    - toc:  # table of content
+          permalink: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:mermaid2.fence_mermaid
 plugins:
-  - search  # search bar
-  - tags: # hashtags support (material theme)
-      tags_file: folder1/tags.md
-  - ezlinks:
-        wikilinks: true  # support [[WikiLinks]] used in e.g. Obsidian
-  - mermaid2  # interpret mermaid graphs
-#  - awesome-pages  # simplifies configuring page titles and their order
-  - embed_file:  # embed files such as pdfs, e.g. ![[filename]]
-      callouts: true
-      custom-attributes: 'assets/css/custom_attributes.css'
-  - callouts  # converts Obsidian style callouts to mkdocs supported 'admonitions
-  - git-revision-date-localized:  # display "last updated: DATE" at bottom of page, based on git
-        type: date
-        fallback_to_build_date: true
-        locale: en
-#  - encryptcontent:
-#      title_prefix: '🔐'
-#      password_button: True
-#      password_button_text: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32zM342.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L242.8 224H32C14.31 224 0 238.3 0 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C355.1 266.1 355.1 245.9 342.6 233.4z"/></svg>'
-  - custom-attributes:
-      file: 'assets/css/custom_attributes.css'
-  - meta-descriptions  # generate meta descriptions for your pages using the first paragraph of each page
+    - search  # search bar
+    - tags: # hashtags support (material theme), does not yet support obsidian style hashtags :(
+          tags_file: folder1/tags.md
+    - ezlinks:
+          wikilinks: true  # support [[WikiLinks]] used in e.g. Obsidian
+    - mermaid2  # interpret mermaid graphs
+    - awesome-pages  # simplifies configuring page titles and their order
+    - embed_file:  # embed files such as pdfs, e.g. ![[filename]]
+          callouts: true
+          custom-attributes: 'assets/css/custom_attributes.css'
+    - callouts  # converts Obsidian style callouts to mkdocs supported 'admonitions
+    - git-revision-date-localized:  # display "last updated: DATE" at bottom of page, based on git
+            type: date
+            fallback_to_build_date: true
+            locale: en
+  #  - encryptcontent:
+    #      title_prefix: '🔐'
+    #      password_button: True
+    #      password_button_text: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32zM342.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L242.8 224H32C14.31 224 0 238.3 0 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C355.1 266.1 355.1 245.9 342.6 233.4z"/></svg>'
+    - custom-attributes:
+          file: 'assets/css/custom_attributes.css'
+    - meta-descriptions  # generate meta descriptions for your pages using the first paragraph of each page
 hooks:
-  - overrides/hooks/on_page_markdown.py
-#  - overrides/hooks/on_env.py  # create obsidian graph
+    - overrides/hooks/on_page_markdown.py
+  #  - overrides/hooks/on_env.py  # create obsidian graph
 extra_javascript:
-  - assets/js/mathjax.js  # mathematical LaTeX support (standard)
-  - assets/js/utils.js # this seems to be obsidian graph code
-  - https://polyfill.io/v3/polyfill.min.js?features=es6  # support older browsers? A js polyfill library for es6 API such as findIndex, Array.from, etc.
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # more LaTeX support
-#  - assets/js/tooltipster.bundle.js  # todo this doesnt work yet?
+    - assets/js/mathjax.js  # mathematical LaTeX support (standard)
+    - assets/js/utils.js # this seems to be obsidian graph code
+    - https://polyfill.io/v3/polyfill.min.js?features=es6  # support older browsers? A js polyfill library for es6 API such as findIndex, Array.from, etc.
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # more LaTeX support
+  #  - assets/js/tooltipster.bundle.js  # todo this doesnt work yet?
 extra_css:
     - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
     - assets/css/template/blog.css
@@ -109,12 +110,12 @@ extra_css:
     - assets/css/custom_attributes.css
     - assets/css/customization.css
 extra:  # data passed to templates
-  generator: false  # if True, displays Made with Material for MkDocs at bottom of page
-#  SEO: assets/meta/SEO.png
-#  blog_list:
-#    pagination: true
-#    pagination_message: true
-#    pagination_translation: 'posts in'
-  hooks:
-    strip_comments: true
-    fix_heading: true
+    generator: false  # if True, displays Made with Material for MkDocs at bottom of page
+  #  SEO: assets/meta/SEO.png
+  #  blog_list:
+    #    pagination: true
+    #    pagination_message: true
+    #    pagination_translation: 'posts in'
+    hooks:
+        strip_comments: true
+        fix_heading: true
