@@ -41,7 +41,7 @@ jobs:
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN  }}
           src_branch: main
-          src_path: /images/.
+          src_path: /notes/image/.
           dst_owner: hannesdelbeke
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /static/images/
