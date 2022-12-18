@@ -82,8 +82,8 @@ jobs:
       - name: Commit copy to target branch
         run: |
           cd dst_repo_dir
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
           git add .
           git -m "copy notes and images"
           git push
