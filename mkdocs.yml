@@ -92,8 +92,8 @@ markdown_extensions:
                 format: !!python/name:mermaid2.fence_mermaid
 plugins:
     - search                        # search bar
-    - tags:                         # hashtags support (material theme), does not yet support obsidian style hashtags :(
-          tags_file: folder1/tags.md
+    # - tags:                         # hashtags support (material theme), does not yet support obsidian style hashtags :(
+    #       tags_file: folder1/tags.md
     - ezlinks:
           wikilinks: true           # support [[WikiLinks]] used in e.g. Obsidian
     - mermaid2                      # interpret mermaid graphs
