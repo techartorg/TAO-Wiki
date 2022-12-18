@@ -20,6 +20,7 @@ branch infrastructure
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
 - [ ] submodule support for actions **TODO**
 - [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
+- [ ] currently action doesn't work if no image or notes folder
 
 ## contribute
 TODO local run site instructions.
