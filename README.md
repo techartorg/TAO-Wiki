@@ -16,6 +16,7 @@ branch infrastructure
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
 - [ ] backlinks
 - [ ] submodule support **TODO**
+- [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 
 ## contribute
 TODO local run site instructions.
