@@ -1,5 +1,6 @@
 name: Copy branches main to documentation 
-
+env:
+  REPO_OWNER: hannesdelbeke
 
 # Controls when the action will run.
 on:
@@ -7,17 +8,12 @@ on:
   push:
     branches: [main]
 
-    # inputs: TODO put variables in here for easier to config, see https://stackoverflow.com/questions/74072206
-env: #this didn't work, see below for input
-  REPO_OWNER: hannesdelbeke
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # set GITHUB_TOKEN access
 permissions:
   contents: write
-
 
 jobs:
   copy-images:
@@ -39,11 +35,11 @@ jobs:
         with:
           personal_token: ${{ secrets.ACTION_TOKEN  }}
           src_branch: main
+          dst_branch: mkdocs
           src_path: /notes/image/.
+          dst_path: /static/images/
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
-          dst_path: /static/images/
-          dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Images copied from main to documentation branch!"
 
@@ -57,11 +53,11 @@ jobs:
         with:
           personal_token: ${{ secrets.ACTION_TOKEN  }}
           src_branch: main
+          dst_branch: mkdocs
           src_path: /notes/.
+          dst_path: /docs/
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
-          dst_path: /docs/
-          dst_branch: mkdocs
           clean: true  # empty dst_path before copying
           commit_message: "Sections copied from main to documentation branch!"
        
