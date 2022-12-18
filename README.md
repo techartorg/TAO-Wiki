@@ -15,7 +15,6 @@ branch infrastructure
 - [ ] hashtag search click
 - [ ] preview hover link
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
-- [ ] backlinks
 - [ ] submodule support **TODO**
 - [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 
