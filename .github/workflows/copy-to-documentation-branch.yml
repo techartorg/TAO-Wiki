@@ -31,6 +31,10 @@ jobs:
       - uses: actions/checkout@v2
 
       # TODO run janitor on markdown input
+      
+      # TODO garantuee image and note folder exists
+      # - name: setup copy
+      #   run: mkdir -p 
 
       - name: Copy Images
         uses: andstor/copycat-action@v3
