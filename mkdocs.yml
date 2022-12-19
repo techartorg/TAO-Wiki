@@ -10,9 +10,8 @@ theme:
 #    logo: assets/meta/favicons.png
 #    favicon: assets/meta/favicon.png
 #    custom_dir: overrides
-#    font:
-#        text: Ubuntu
-#        code: Ubuntu Mono
+    font:
+        text: Inter  # use same font as obsidian
     language: en
 #    highlightjs: true
 #    icon:
