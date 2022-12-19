@@ -33,4 +33,4 @@ jobs:
         run: rm --force -r note-link-janitor
       
       # build & deploy site
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy --force --message "GITHUB ACTION 🤖⚡ deploy site, mkdocs v{version} "
