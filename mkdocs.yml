@@ -74,8 +74,8 @@ markdown_extensions:
     - pymdownx.highlight:
           use_pygments: true
           anchor_linenums: true
-    - pymdownx.tasklist:
-          custom_checkbox: true
+    - pymdownx.tasklist:          # adds GFM style task lists
+          custom_checkbox: false  # if true, unchecked checkboxes confusingly have a tick
     - pymdownx.emoji:
           emoji_index: !!python/name:materialx.emoji.twemoji
           emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -91,8 +91,8 @@ markdown_extensions:
                 format: !!python/name:mermaid2.fence_mermaid
 plugins:
     - search                        # search bar
-    - tags:                         # hashtags support (material theme), does not yet support obsidian style hashtags :(
-          tags_file: folder1/tags.md
+    # - tags:                         # hashtags support (material theme), does not yet support obsidian style hashtags :(
+    #       tags_file: folder1/tags.md
     - ezlinks:
           wikilinks: true           # support [[WikiLinks]] used in e.g. Obsidian
     - mermaid2                      # interpret mermaid graphs
