@@ -21,6 +21,7 @@ branch infrastructure
 - [ ] submodule support for actions **TODO**
 - [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 - [ ] currently action doesn't work if no image or notes folder
+- [ ] handle limitation. do not make a folder in notes with the reponame
 
 ## contribute
 TODO local run site instructions.
