@@ -1,11 +1,13 @@
 site_name: My Docs
 edit_uri: https://github.com/hannesdelbeke/wiki_template/blob/main/notes  # root folder containing the notes on main branch, used for the edit button
 site_url: https://hannesdelbeke.github.io/wiki/  # ensure why this is needed
+repo_url: https://github.com/hannesdelbeke/wiki_template
+repo_name: hannesdelbeke/wiki_template
 
 theme:
     name: material
-    # note the material theme ships with some PREMIUM features which won't work yet.
-    # added to config for future proofing
+    # note the material theme ships with some 💸PREMIUM features which won't work yet.
+    # added them to config for future proofing.
 
 #    logo: assets/meta/favicons.png
 #    favicon: assets/meta/favicon.png
@@ -44,11 +46,11 @@ theme:
         - navigation.expand: false
         - navigation.instant      # optimize for large documentation sites such as PKM wikis
         - navigation.tracking     # enable anchor tracking in the URL, so users can easily share links
-        - navigation.prune        # PREMIUM, reduce the size of the built site, only visible navigation items are included in HTML
+        - navigation.prune        # 💸PREMIUM, reduce the size of the built site, only visible navigation items are included in HTML
         - search.suggest          # autocomplete in the search box
         - search.highlight        # highlight search terms in the search results
-        - content.tooltips        # PREMIUM, pretty tooltips for links
-
+        - content.tooltips        # 💸PREMIUM, pretty tooltips for links
+#relative URLs
 
 # Extensions
 # for standard extensions see https://python-markdown.github.io/extensions/
@@ -57,7 +59,7 @@ markdown_extensions:
     - nl2br                       # newlines are treated as hard breaks, like in StackOverflow & GitHub (standard)
     - attr_list                   # define attributes on HTML elements (standard), add CSS support for hashtags
     - sane_lists                  # make list more intuitive (standard)
-    - meta            # (premium) # support multimarkdown style metadata (standard) similar to footnote
+    - meta                        # 💸PREMIUM support multimarkdown style metadata (standard) similar to footnote
     - smarty                      # converts ASCII dashes, quotes and ellipses to correct HTML (standard)
     - tables                      # support tables (standard)
     - mdx_breakless_lists
@@ -102,9 +104,8 @@ plugins:
           custom-attributes: 'assets/css/custom_attributes.css'
     - callouts                      # converts Obsidian style callouts to mkdocs supported 'admonitions
     - git-revision-date-localized:  # display "last updated: DATE" at bottom of page, based on git
-            type: date
-            fallback_to_build_date: true
-            locale: en
+        type: date
+        locale: en
   #  - encryptcontent:
     #      title_prefix: '🔐'
     #      password_button: True
