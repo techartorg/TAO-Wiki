@@ -32,5 +32,8 @@ jobs:
       - name: Remove Janitor folder
         run: rm --force -r note-link-janitor
       
+      # fetch git history so creation dates in mkdocs show correctly
+      - run: git pull --unshallow
+
       # build & deploy site
       - run: mkdocs gh-deploy --force --message "GITHUB ACTION 🤖⚡ deploy site, mkdocs v{version} "
