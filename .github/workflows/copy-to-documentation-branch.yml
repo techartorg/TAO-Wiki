@@ -61,18 +61,23 @@ jobs:
           clean: true  # empty dst_path before copying
           commit_message: "Sections copied from main to documentation branch!"
        
-# copy-readme:
-#   runs-on: ubuntu-latest
-#   steps:
-#     - uses: actions/checkout@v2
-#     - name: Copy Markdowns
-#       uses: andstor/copycat-action@v3
-#       with:
-#         personal_token: ${{ secrets.PERSONAL_TOKEN  }}
-#         src_branch: main
-#         src_path: /README.md
-#         dst_owner: andkret
-#         dst_repo_name: ${{ github.event.repository.name }}
-#         dst_path: /docs/
-#         dst_branch: mkdocs
-#         commit_message: "README.md copied from main to documentation branch!"
+  copy-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy Markdowns
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.ACTION_TOKEN  }}
+          src_branch: main
+          src_path: /README.md
+          dst_owner: ${{ env.REPO_OWNER }}
+          dst_repo_name: ${{ github.event.repository.name }}
+          dst_path: /docs/
+          dst_branch: mkdocs
+          commit_message: "README.md copied from main to documentation branch!"
+      
+      # use readme as index (first page) for the site
+      - run: |
+            rm -d /docs/index.md
+            mv /docs/README.md /docs/index.md
