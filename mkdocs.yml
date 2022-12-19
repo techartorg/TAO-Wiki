@@ -1,5 +1,5 @@
 site_name: My Docs
-edit_uri: https://github.com/hannesdelbeke/brain/blob/main/docs  # root folder containing the notes on main branch, used for the edit button
+edit_uri: https://github.com/hannesdelbeke/brain/blob/main  # root folder containing the notes on main branch, used for the edit button
 site_url: https://hannesdelbeke.github.io/wiki/  # ensure why this is needed
 
 theme:
