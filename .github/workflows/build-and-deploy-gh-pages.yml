@@ -1,9 +1,13 @@
 name: ci
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - mkdocs
+
+  # disable push for now, since we don't push new content to the branch currently
+  # this would publish an empty site
+  # push:
+  #   branches:
+  #     - mkdocs
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
