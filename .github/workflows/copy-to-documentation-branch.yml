@@ -77,7 +77,5 @@ jobs:
           commit_message: "GITHUB ACTION 🤖⚡ README.md copied from main to documentation branch!"
           username: ${{ github.actor }}
       
-      # use readme as index (first page) for the site
-      - run: |
-            rm -d /docs/index.md
-            mv /docs/README.md /docs/index.md
+      # use readme as index (first page), if index does not exist
+      - run: mv -n /docs/README.md /docs/index.md
