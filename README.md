@@ -4,6 +4,13 @@ which settings to configure in the config file.
 folder layout
 branch infrastructure
 
+TODO:
+- fork/make from template
+- copy your vault notes in notes folder (don't change the foldername)
+- token?
+- in your notes folder, create a file index.md. This is the first page people see on your website.
+
+
 ## Features
 ### Done
 - [x] hashtag
