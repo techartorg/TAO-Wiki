@@ -44,7 +44,7 @@ theme:
 #        - navigation.tabs         # add a tab bar to top of page
 #        - navigation.tabs.sticky  # keep tab bar visible when scrolling down
         - navigation.expand: false
-        - navigation.instant      # optimize for large documentation sites such as PKM wikis
+        # - navigation.instant      # optimize for large documentation sites such as PKM wikis, ?possibly buggy sometimes?, reload page fixes it.
         - navigation.tracking     # enable anchor tracking in the URL, so users can easily share links
         - navigation.prune        # 💸PREMIUM, reduce the size of the built site, only visible navigation items are included in HTML
         - search.suggest          # autocomplete in the search box
