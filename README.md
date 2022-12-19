@@ -21,12 +21,12 @@ TODO:
 - [x] various fancy markdown syntax, e.g. LaTeX, mermaid, etc.
 - [x] every page has a "edit on github" pencil in top right, which links to the page on github
 - [x] configure landing page / start page. index.md file in notes
+- [x] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 ### TODO
 - [ ] hashtag search click
 - [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
 - [ ] hookup obsidian graph, figure out how to use existing code that renders a graph
 - [ ] submodule support for actions **TODO**
-- [ ] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
 - [ ] currently action doesn't work if no image or notes folder
 - [ ] handle limitation. do not make a folder in notes with the reponame
 
