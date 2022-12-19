@@ -1,3 +1,87 @@
 /*
-Customize your blog as you want here!
+Customize dark theme
 */
+.md-typeset a, .md-typeset a:before {
+
+    font-weight: 600  ;
+}
+
+.md-typeset {
+    font-size: .7rem;
+}
+
+[data-md-color-scheme=slate][data-md-color-primary=black], [data-md-color-scheme=slate][data-md-color-primary=blue-grey], [data-md-color-scheme=slate][data-md-color-primary=grey], [data-md-color-scheme=slate][data-md-color-primary=white]{
+    --md-typeset-a-color: rgb(167, 244, 23);
+}
+
+
+[data-md-color-scheme="slate"] { 
+  
+    --data-md-color-primary:            rgb(20,20,20);
+    /* // Default color shades  */
+    --md-default-fg-color:               hsla(0, 0%, 100%, 1); 
+    --md-default-fg-color--light:        hsla(0, 0%, 100%, 0.5); 
+    --md-default-fg-color--lighter:      hsla(0, 0%, 100%, 0.32); 
+    --md-default-fg-color--lightest:     hsla(0, 0%, 100%, 0.12);
+    --md-default-bg-color:               rgb(30, 30, 30); 
+    --md-default-bg-color--light:        hsla(232, 0%, 21%, 0.54); 
+    --md-default-bg-color--lighter:      hsla(232, 0%, 21%, 0.26); 
+    --md-default-bg-color--lightest:     hsla(232, 0%, 21%, 0.07);
+   
+    /* // Code color shades  */
+    --md-code-bg-color:                  hsla(232, 0%, 15%, 1); 
+    --md-code-fg-color:                  hsla(60, 0%, 80%, 1); 
+   
+    /* // Text color shades  */
+    /* --md-text-color:                     var(--md-default-fg-color--light); 
+    --md-text-link-color:                var(--md-primary-fg-color);  */
+   
+    /* // Admonition color shades  */
+    /* --md-admonition-bg-color:            hsla(0, 0%, 100%, 0.025); 
+    --md-admonition-fg-color:            var(--md-default-fg-color);  */
+   
+    /* // Footer color shades  */
+    /* --md-footer-bg-color:                hsla(232, 15%, 12%, 0.87); 
+    --md-footer-bg-color--dark:          hsla(232, 15%, 10%, 1);  */
+  } 
+
+  /* .md-typeset h1 {
+    font-weight: bold;
+  } */
+
+  /* .md-header__title{
+    background-color: rgb(38, 38, 38);
+  } */
+
+[data-md-color-primary=black] .md-header {
+    background-color: rgb(38, 38, 38);
+}
+
+[data-md-color-scheme="slate"] .hash {
+    /* background-color: var(--md-typeset-a-color);  */
+    
+    background-color: var(--md-default-bg-color--light); 
+    color: var(--md-default-fg-color--light);
+    border-radius: 5px;
+    padding-inline: 5px;
+}
+
+/* [data-md-color-primary=grey] .md-header {
+    background-color: var(--md-default-fg-color--lighter);
+} */
+
+[data-md-color-scheme="light"] {
+    /* // Text color shades  */
+    /* --md-text-color:                     var(--md-default-fg-color--light);  */
+    --md-text-link-color:                red; 
+}
+
+/* [data-md-color-scheme="light"]  unsure why this doesnt work should be light theme only*/
+.hash {
+    /* background-color: var(--md-typeset-a-color);  */
+    
+    background-color: var(--md-default-fg-color--light--light); 
+    color: var(--md-default-fg-color--light);
+    border-radius: 5px;
+    padding-inline: 5px;
+}
