@@ -75,8 +75,8 @@ markdown_extensions:
     - pymdownx.highlight:
           use_pygments: true
           anchor_linenums: true
-    - pymdownx.tasklist:
-          custom_checkbox: true
+    - pymdownx.tasklist:          # adds GFM style task lists
+          custom_checkbox: false  # if true, unchecked checkboxes confusingly have a tick
     - pymdownx.emoji:
           emoji_index: !!python/name:materialx.emoji.twemoji
           emoji_generator: !!python/name:materialx.emoji.to_svg
