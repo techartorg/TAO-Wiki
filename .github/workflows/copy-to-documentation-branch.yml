@@ -22,9 +22,6 @@ jobs:
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-
-      # TODO run janitor on markdown input
       
       # TODO garantuee image and note folder exists
       # - name: setup copy
@@ -41,7 +38,8 @@ jobs:
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           clean: true  # empty dst_path before copying
-          commit_message: "Images copied from main to documentation branch!"
+          commit_message: "GITHUB ACTION 🤖⚡ Images copied from main to documentation branch!"
+          username: ${{ github.actor }}
 
   copy-sections:
     runs-on: ubuntu-latest
@@ -59,7 +57,8 @@ jobs:
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           clean: false  # empty dst_path before copying, we don't want to delete the css in docs!
-          commit_message: "Sections copied from main to documentation branch!"
+          commit_message: "GITHUB ACTION 🤖⚡ Sections copied from main to documentation branch!"
+          username: ${{ github.actor }}
        
   copy-readme:
     runs-on: ubuntu-latest
@@ -75,7 +74,8 @@ jobs:
           dst_repo_name: ${{ github.event.repository.name }}
           dst_path: /docs/
           dst_branch: mkdocs
-          commit_message: "README.md copied from main to documentation branch!"
+          commit_message: "GITHUB ACTION 🤖⚡ README.md copied from main to documentation branch!"
+          username: ${{ github.actor }}
       
       # use readme as index (first page) for the site
       - run: |
