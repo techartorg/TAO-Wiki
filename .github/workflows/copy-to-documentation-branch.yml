@@ -21,7 +21,7 @@ jobs:
     steps:
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
       
       # TODO garantuee image and note folder exists
       # - name: setup copy
@@ -60,22 +60,22 @@ jobs:
           commit_message: "GITHUB ACTION 🤖⚡ Sections copied from main to documentation branch!"
           username: ${{ github.actor }}
        
-  copy-readme:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Copy Markdowns
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{ secrets.ACTION_TOKEN  }}
-          src_branch: main
-          src_path: /README.md
-          dst_owner: ${{ env.REPO_OWNER }}
-          dst_repo_name: ${{ github.event.repository.name }}
-          dst_path: /docs/
-          dst_branch: mkdocs
-          commit_message: "GITHUB ACTION 🤖⚡ README.md copied from main to documentation branch!"
-          username: ${{ github.actor }}
+  # copy-readme:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Copy Markdowns
+  #       uses: andstor/copycat-action@v3
+  #       with:
+  #         personal_token: ${{ secrets.ACTION_TOKEN  }}
+  #         src_branch: main
+  #         src_path: /README.md
+  #         dst_owner: ${{ env.REPO_OWNER }}
+  #         dst_repo_name: ${{ github.event.repository.name }}
+  #         dst_path: /docs/
+  #         dst_branch: mkdocs
+  #         commit_message: "GITHUB ACTION 🤖⚡ README.md copied from main to documentation branch!"
+  #         username: ${{ github.actor }}
       
-      # use readme as index (first page), if index does not exist
-      - run: mv -n /docs/README.md /docs/index.md
+      # # use readme as index (first page), if index does not exist
+      # - run: mv -n /README.md /docs/index.md
