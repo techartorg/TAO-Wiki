@@ -58,7 +58,7 @@ jobs:
           dst_path: /docs/
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
-          clean: true  # empty dst_path before copying
+          clean: false  # empty dst_path before copying, we don't want to delete the css in docs!
           commit_message: "Sections copied from main to documentation branch!"
        
   copy-readme:
