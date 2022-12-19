@@ -10,6 +10,7 @@ TODO:
 - token?
 - in your notes folder, create a file index.md. This is the first page people see on your website.
 
+- do not make a folder named "assets", or a folder with the same name as your repo e.g. "wiki_templates"
 
 ## Features
 ### Done
