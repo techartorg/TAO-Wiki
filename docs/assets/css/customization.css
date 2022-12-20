@@ -11,7 +11,8 @@ Customize dark theme
 }
 
 [data-md-color-scheme=slate][data-md-color-primary=black], [data-md-color-scheme=slate][data-md-color-primary=blue-grey], [data-md-color-scheme=slate][data-md-color-primary=grey], [data-md-color-scheme=slate][data-md-color-primary=white]{
-    --md-typeset-a-color: rgb(167, 244, 23);
+    --md-typeset-a-color: rgb(167, 244, 23);  /* URL color basic */
+    --md-accent-fg-color: rgb(255, 218, 11);  /* URL color hover */
 }
 
 
@@ -20,7 +21,7 @@ Customize dark theme
     --data-md-color-primary:            rgb(20,20,20);
     /* // Default color shades  */
     --md-default-fg-color:               hsla(0, 0%, 100%, 1); 
-    --md-default-fg-color--light:        hsla(0, 0%, 100%, 0.5); 
+    --md-default-fg-color--light:        hsla(0, 0%, 100%, 0.6); 
     --md-default-fg-color--lighter:      hsla(0, 0%, 100%, 0.32); 
     --md-default-fg-color--lightest:     hsla(0, 0%, 100%, 0.12);
     --md-default-bg-color:               rgb(30, 30, 30); 
@@ -66,6 +67,10 @@ Customize dark theme
     padding-inline: 5px;
 }
 
+
+/* ================= color scheme light ============================ */
+/* light scheme is still WIP */
+
 /* [data-md-color-primary=grey] .md-header {
     background-color: var(--md-default-fg-color--lighter);
 } */
@@ -73,7 +78,7 @@ Customize dark theme
 [data-md-color-scheme="light"] {
     /* // Text color shades  */
     /* --md-text-color:                     var(--md-default-fg-color--light);  */
-    --md-text-link-color:                red; 
+    /* --md-text-link-color:                red;  */
 }
 
 /* [data-md-color-scheme="light"]  unsure why this doesnt work should be light theme only*/
@@ -82,6 +87,8 @@ Customize dark theme
     
     background-color: var(--md-default-fg-color--light--light); 
     color: var(--md-default-fg-color--light);
+
+    /* add bubble background to hashtags */
     border-radius: 5px;
     padding-inline: 5px;
 }
