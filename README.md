@@ -14,16 +14,16 @@ TODO:
 
 ## Features
 ### Done
-- [x] hashtag
-- [x] wikilinks
+- [x] [[wikilinks]]
+- [x] backlink support, forked Andy's [note-link-janitor](https://github.com/andymatuschak/note-link-janitor) and added a few fixes
+- [x] [obsidian graph](https://hannesdelbeke.github.io/wiki_template/Graph%F0%9F%95%B8%EF%B8%8F/)
 - [x] dark/light theme
+- [x] every page has a "edit on github" pencil in top right, which links to the page on github
+- [x] hashtag
 - [x] dynamic content bar
 - [x] table of content (page)
 - [x] various fancy markdown syntax, e.g. LaTeX, mermaid, etc.
-- [x] every page has a "edit on github" pencil in top right, which links to the page on github
 - [x] configure landing page / start page. index.md file in notes
-- [x] backlink support, forked Andy's [note-link-janitor](https://github.com/andymatuschak/note-link-janitor) and added a few fixes
-- [x] [obsidian graph](https://hannesdelbeke.github.io/wiki_template/Graph%F0%9F%95%B8%EF%B8%8F/)
 ### TODO
 - [ ] hashtag search click
 - [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
