@@ -115,10 +115,10 @@ plugins:
     - meta-descriptions                                            # generate meta descriptions for your pages using the first paragraph of each page
 hooks:
     - overrides/hooks/on_page_markdown.py
-  #  - overrides/hooks/on_env.py  # create obsidian graph
+    - overrides/hooks/on_env.py                                   # code to generate the obsidian graph
 extra_javascript:
+    - assets/js/utils.js                                          # code to generate the obsidian graph (i think)
     - assets/js/mathjax.js                                        # mathematical LaTeX support (standard)
-    - assets/js/utils.js                                          # this seems to be obsidian graph code
     - https://polyfill.io/v3/polyfill.min.js?features=es6         # support older browsers? A js polyfill library for es6 API such as findIndex, Array.from, etc.
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # more LaTeX support
   #  - assets/js/tooltipster.bundle.js                            # todo this doesnt work yet?
