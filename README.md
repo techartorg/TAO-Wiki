@@ -22,7 +22,7 @@ TODO:
 - [x] various fancy markdown syntax, e.g. LaTeX, mermaid, etc.
 - [x] every page has a "edit on github" pencil in top right, which links to the page on github
 - [x] configure landing page / start page. index.md file in notes
-- [x] backlink support, [note-link-janitor](https://github.com/andymatuschak/note-link-janitor)
+- [x] backlink support, forked Andy's [note-link-janitor](https://github.com/andymatuschak/note-link-janitor) and added a few fixes
 ### TODO
 - [ ] hashtag search click
 - [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
