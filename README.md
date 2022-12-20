@@ -5,6 +5,9 @@ which settings to configure in the config file.
 folder layout
 branch infrastructure
 
+NOTES:
+- if you create a file index.md in a folder, that page will open when clicking on the folder in the side bar.
+
 TODO:
 - fork/make from template
 - copy your vault notes in notes folder (don't change the foldername)
