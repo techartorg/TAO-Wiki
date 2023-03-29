@@ -38,7 +38,7 @@ jobs:
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           clean: true  # empty dst_path before copying
-          commit_message: "GITHUB ACTION 🤖⚡ Images copied from main to documentation branch!"
+          commit_message: "GITHUB ACTION 🤖⚡ Images copied from main to mkdocs branch!"
           username: ${{ github.actor }}
 
   copy-sections:
@@ -57,7 +57,7 @@ jobs:
           dst_owner: ${{ env.REPO_OWNER }}
           dst_repo_name: ${{ github.event.repository.name }}
           clean: false  # empty dst_path before copying, we don't want to delete the css in docs!
-          commit_message: "GITHUB ACTION 🤖⚡ Sections copied from main to documentation branch!"
+          commit_message: "GITHUB ACTION 🤖⚡ Sections copied from main to mkdocs branch!"
           username: ${{ github.actor }}
        
   # copy-readme:
