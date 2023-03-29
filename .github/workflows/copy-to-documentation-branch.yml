@@ -30,7 +30,7 @@ jobs:
       - name: Copy Images
         uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.ACTION_TOKEN  }}
+          personal_token: ${{ secrets.GITHUB_TOKEN   }}
           src_branch: main
           dst_branch: mkdocs
           src_path: /notes/image/.
@@ -49,7 +49,7 @@ jobs:
       - name: Copy Markdowns
         uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.ACTION_TOKEN  }}
+          personal_token: ${{ secrets.GITHUB_TOKEN   }}
           src_branch: main
           dst_branch: mkdocs
           src_path: /notes/.
@@ -67,7 +67,7 @@ jobs:
   #     - name: Copy Markdowns
   #       uses: andstor/copycat-action@v3
   #       with:
-  #         personal_token: ${{ secrets.ACTION_TOKEN  }}
+  #         personal_token: ${{ secrets.GITHUB_TOKEN   }}
   #         src_branch: main
   #         src_path: /README.md
   #         dst_owner: ${{ env.REPO_OWNER }}
