@@ -1,4 +1,4 @@
-name: ci
+name: build & deploy
 on:
   push:
     branches:
@@ -26,13 +26,16 @@ jobs:
           repository: 'hannesdelbeke/note-link-janitor'  # use fork to support subfolders
           ref: stable
           path: 'note-link-janitor'
+          
       - name: install yarn in janitor workspace
         run: |
             cd ${{ github.workspace }}/note-link-janitor
             yarn install
             yarn run build
+            
       - name: create backlinks with Janitor
         run: ${{ github.workspace }}/note-link-janitor/dist/index.js ${{ github.workspace }}/docs
+        
       - name: Remove Janitor folder
         run: rm --force -r note-link-janitor
       
