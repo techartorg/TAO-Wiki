@@ -1,4 +1,6 @@
-This is the front page of the repo. This README is not included in the wiki.
+This repo hosts [https://techartorg.github.io/TAO-Wiki/](https://techartorg.github.io/TAO-Wiki/)
+
+This README is not included in the wiki, everything in the notes folder is included in the wiki.
 
 ### Simple in browser edit
 - To update this wiki, simply edit any .md files in the notes folder.
