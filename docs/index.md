@@ -5,7 +5,9 @@ instructions on where to start:
 maybe check out your favorite app?
 - [[Unity]]
 - [[Houdini]]
-- [[3ds max]]
+- [[3ds Max]]
 - [[Maya]]
 - [[blender]]
-- 
+- [[Glossary-of-Terms]]
+- [[Python3-Snippets]]
+- [[Unreal]]
