@@ -1,0 +1,1 @@
+Slang for a cute person
