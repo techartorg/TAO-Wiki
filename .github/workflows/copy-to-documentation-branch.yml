@@ -2,6 +2,7 @@ name: Copy branches main to documentation
 env:
   REPO_OWNER: techartorg
 
+
 # Controls when the action will run.
 on:
   # Triggers the workflow on push request events but only for the main branch
@@ -11,71 +12,62 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# set GITHUB_TOKEN access
-permissions:
-  contents: write
-
 jobs:
-  copy-images:
+  copy-content-to-mkdocs-branch:
     runs-on: ubuntu-latest
     steps:
-          
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
       
-      # TODO garantuee image and note folder exists
-      # - name: setup copy
-      #   run: mkdir -p 
+      - name: checkout target repo (branch)
+        uses: actions/checkout@v2
+        with: 
+          path: dst_repo
+          ref: mkdocs
 
-      - name: Copy Images
-        uses: andstor/copycat-action@v3.2.4
+      # run janitor on markdown input
+      - uses: actions/setup-node@v2
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN   }}
-          src_branch: main
-          dst_branch: mkdocs
-          src_path: /notes/image/.
-          dst_path: /static/images/
-          dst_owner: ${{ env.REPO_OWNER }}
-          dst_repo_name: ${{ github.event.repository.name }}
-          clean: true  # empty dst_path before copying
-          commit_message: "GITHUB ACTION 🤖⚡ Images copied from main to mkdocs branch!"
-          username: ${{ github.actor }}
-
-  copy-sections:
-    runs-on: ubuntu-latest
-
-    steps:
+          node-version: '16'
       - uses: actions/checkout@v2
-      - name: Copy Markdowns
-        uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN   }}
-          src_branch: main
-          dst_branch: mkdocs
-          src_path: /notes/.
-          dst_path: /docs/
-          dst_owner: ${{ env.REPO_OWNER }}
-          dst_repo_name: ${{ github.event.repository.name }}
-          clean: false  # empty dst_path before copying, we don't want to delete the css in docs!
-          commit_message: "GITHUB ACTION 🤖⚡ Sections copied from main to mkdocs branch!"
-          username: ${{ github.actor }}
-       
-  # copy-readme:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Copy Markdowns
-  #       uses: andstor/copycat-action@v3
-  #       with:
-  #         personal_token: ${{ secrets.GITHUB_TOKEN   }}
-  #         src_branch: main
-  #         src_path: /README.md
-  #         dst_owner: ${{ env.REPO_OWNER }}
-  #         dst_repo_name: ${{ github.event.repository.name }}
-  #         dst_path: /docs/
-  #         dst_branch: mkdocs
-  #         commit_message: "GITHUB ACTION 🤖⚡ README.md copied from main to documentation branch!"
-  #         username: ${{ github.actor }}
+          repository: 'hannesdelbeke/note-link-janitor'  # use fork to support subfolders
+          ref: stable
+          path: 'note-link-janitor'
+      - name: install yarn in janitor workspace
+        run: |
+            cd ${{ github.workspace }}/note-link-janitor
+            yarn install
+            yarn run build
+      - name: Run Note Link Janitor
+        run: ${{ github.workspace }}/note-link-janitor/dist/index.js ${{ github.workspace }}/temp_submodule
+
+      # first move image, then notes. # docs folder already exists, it contains css in assets
+      - name: move submodule files to dst_repo
+        run: |
+            mkdir -p dst_repo/static/images/
+            mv temp_submodule/image/* dst_repo/static/images/
+            rm --force -r temp_submodule/.git
+            rsync -av temp_submodule/* dst_repo/docs/
+      # push repo
+      - name: push updates to mkdocs branch
+        # uses: ad-m/github-push-action@master
+        # with:
+        #   directory: dst_repo
+        run: |
+            cd dst_repo
+            git config --global user.name github-actions
+            git config --global user.email github-actions@github.com
+            git add .
+            git commit -m "GITHUB ACTION 🤖⚡copy notes and images"
+            git push
       
-      # # use readme as index (first page), if index does not exist
-      # - run: mv -n /README.md /docs/index.md
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: install py requirements
+        run: |
+            cd dst_repo
+            pip install --requirement requirements.txt
+      - name: build mkdocs & deploy to github pages
+        run: |
+            cd dst_repo
+            mkdocs gh-deploy --force
