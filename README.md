@@ -12,8 +12,15 @@ This is the front page of the repo. This README is not included in the wiki.
 4. make edits like usual, any updates should be auto pushed to your fork
 5. create a PR, after merge of your PR the github-page will auto update
 
+### Tech
+- we use mkdocs to auto convert markdown files to HTML
+- we use github actions to automate the build process. 
+- any commit to the `main` branch triggers a copy of the notes from `main` to `mkdocs` branch
+- any commit in the `mkdocs` branch triggers a mkdocs build, to auto convert the markdown to html, using the settings in `mkdocs.yml`
+- html output is saved in the `gh-pages` branch. this is where all the HTML stuff like css files etc live. (right now the build HTML files aren't actually committed)
+- the files from the `gh-pages` branch are then automatically uploaded to github-pages by the github action.
 
-This wiki is based on this [wiki-template](https://github.com/hannesdelbeke/wiki_template)
+You can easily set this up yourself with the [wiki-template](https://github.com/hannesdelbeke/wiki_template) from [@hannesdelbeke](https://github.com/hannesdelbeke)
 
 ## license
 Github actions and site build code is currently AGPL, because some AGPL python hooks were used from [obsidian-mkdocs-publisher-template](https://github.com/ObsidianPublisher/obsidian-mkdocs-publisher-template)
