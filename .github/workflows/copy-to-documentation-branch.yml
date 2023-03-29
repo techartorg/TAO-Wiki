@@ -80,4 +80,4 @@ jobs:
       - name: build mkdocs & deploy to github pages
         run: |
             cd dst_repo
-            mkdocs gh-deploy --force
+            mkdocs gh-deploy --force --message "GITHUB ACTION 🤖⚡ deploy site, mkdocs v{version} "
