@@ -9,6 +9,8 @@ Houdini Pipeline Docs
 * [[Houdini Setting up a studio environment]]
 * [[Houdini HDA Naming Conventions]] without a SQL database.
 ## Backlinks
+* [[index]]
+	* [[Houdini]]
 * [[Houdini-HDA-Naming-Conventions]]
 	* *Back to [[Houdini]]*
 	* *Back to [[Houdini]]*
