@@ -2,6 +2,10 @@ This repo hosts [https://techartorg.github.io/TAO-Wiki/](https://techartorg.gith
 
 This README is not included in the wiki, everything in the notes folder is included in the wiki.
 
+### Guidelines for editing
+- don't use colons in filenames., alphanumerical _- only 🙏
+- if linking/referencing other notes, use wikilinks and edit with Obsidian if possible.
+
 ### Simple in browser edit
 - To update this wiki, simply edit any .md files in the notes folder.
 - After being merged in the `main` branch an action will auto update the github-page
