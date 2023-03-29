@@ -1,8 +1,8 @@
 site_name: ' '
-edit_uri: https://github.com/hannesdelbeke/wiki_template/blob/main/notes  # root folder containing the notes on main branch, used for the edit button
-site_url: https://hannesdelbeke.github.io/wiki/  # ensure why this is needed
-repo_url: https://github.com/hannesdelbeke/wiki_template
-repo_name: hannesdelbeke/wiki_template
+edit_uri: https://github.com/techartorg/TAO-Wiki/blob/main/notes  # root folder containing the notes on main branch, used for the edit button
+site_url: https://https://techartorg.github.io/TAO-Wiki/  # ensure why this is needed
+repo_url: https://github.com/techartorg/TAO-Wiki
+repo_name: github.com/techartorg/TAO-Wiki
 
 theme:
     name: material
@@ -131,7 +131,7 @@ extra_css:
     - assets/css/template/utils.css
     - assets/css/admonition.css
     - assets/css/custom_attributes.css                  # hashtag css etc
-    - assets/css/customization.css
+    # - assets/css/customization.css                    # believe this is the custom green dark theme from hannes
 extra:                                                  # data passed to templates
     generator: false                                    # if True, displays Made with Material for MkDocs at bottom of page
   #  SEO: assets/meta/SEO.png
