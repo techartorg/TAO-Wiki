@@ -1,6 +1,6 @@
 name: Copy branches main to documentation 
 env:
-  REPO_OWNER: hannesdelbeke
+  REPO_OWNER: techartorg
 
 # Controls when the action will run.
 on:
