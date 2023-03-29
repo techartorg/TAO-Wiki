@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/folder22/test2.md",
+                "file": "image.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/folder22/test2.md",
+                "file": "image.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/folder22/test2.md",
+                "file": "image.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/folder22/test2.md"
+                "file": "image.md"
               }
             }
           }
@@ -148,8 +148,26 @@
   },
   "active": "4c87f34be763707d",
   "lastOpenFiles": [
+    "image/image-1680116357995.jpeg",
+    "image/Pasted image 20230329195448.png-1680116173680.jpeg",
+    "notes/image.md",
+    "Pasted image 20230329195448.png.md",
+    "image",
+    "image/image-1680116169629.jpeg",
     "notes/image/img_obsidian.jpeg",
+    "notes/folder1/test_tag.md",
+    "notes/folder1/test1b.md",
+    "notes/folder1/test1.md",
+    "notes/image/Pasted image 20230329195433.png",
+    "notes/image/Pasted image 20230329195502.png",
+    "notes/image/Pasted image 20230329195457.png",
+    "notes/image/Pasted image 20230329195453.png",
+    "notes/image/Pasted image 20230329195448.png",
+    "notes/image/Pasted image 20230329195443.png",
+    "notes/image/Pasted image 20230329195438.png",
+    "notes/image/image",
     "notes/folder22/test2.md",
+    "notes/index.md",
     "README.md"
   ]
 }
