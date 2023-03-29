@@ -1,42 +1,19 @@
-See this template in action [here](https://hannesdelbeke.github.io/wiki/)
+This is the front page of the repo. This README is not included in the wiki.
 
-TODO step by step guide on how to setup.
-which settings to configure in the config file.
-folder layout
-branch infrastructure
+### Simple in browser edit
+- To update this wiki, simply edit any .md files in the notes folder.
+- After being merged in the `main` branch an action will auto update the github-page
+- The github page can be found on [https://techartorg.github.io/TAO-Wiki/](https://techartorg.github.io/TAO-Wiki/)
 
-NOTES:
-- if you create a file index.md in a folder, that page will open when clicking on the folder in the side bar.
+### Advanced edit with Obsidian
+1. fork and clone this repo
+2. install [Obsidian](https://obsidian.md/)
+3. Open the repo folder with obsidian.
+4. make edits like usual, any updates should be auto pushed to your fork
+5. create a PR, after merge of your PR the github-page will auto update
 
-TODO:
-- fork/make from template
-- copy your vault notes in notes folder (don't change the foldername)
-- token?
-- in your notes folder, create a file index.md. This is the first page people see on your website.
-- do not make a folder named "assets", or a folder with the same name as your repo e.g. "wiki_templates"
 
-## Features
-### Done
-- [x] [[wikilinks]]
-- [x] backlink support, forked Andy's [note-link-janitor](https://github.com/andymatuschak/note-link-janitor) and added a few fixes
-- [x] [obsidian graph](https://hannesdelbeke.github.io/wiki_template/Graph%F0%9F%95%B8%EF%B8%8F/)
-- [x] dark/light theme
-- [x] every page has a "edit on github" pencil in top right, which links to the page on github
-- [x] hashtag
-- [x] dynamic content bar
-- [x] table of content (page)
-- [x] various fancy markdown syntax, e.g. LaTeX, mermaid, etc.
-- [x] configure landing page / start page. index.md file in notes
-### TODO
-- [ ] hashtag search click
-- [ ] preview [hover link](https://github.com/ObsidianPublisher/tooltips-internal-link)
-- [ ] submodule support for actions **TODO**
-- [ ] currently action doesn't work if no image or notes folder
-- [ ] handle limitation. do not make a folder in notes with the reponame
-
-## contribute
-TODO local run site instructions.
+This wiki is based on this [wiki-template](https://github.com/hannesdelbeke/wiki_template)
 
 ## license
-currently AGPL, and has to confirm to this when redistributed. (easiest is to just keep AGPL)
-This is because some python hooks were used from [obsidian-mkdocs-publisher-template](https://github.com/ObsidianPublisher/obsidian-mkdocs-publisher-template)
+Github actions and site build code is currently AGPL, because some AGPL python hooks were used from [obsidian-mkdocs-publisher-template](https://github.com/ObsidianPublisher/obsidian-mkdocs-publisher-template)
