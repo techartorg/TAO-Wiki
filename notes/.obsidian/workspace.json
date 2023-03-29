@@ -13,8 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "image.md",
+                "file": "index.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
@@ -80,29 +81,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "013076bf55fdbd68",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "image.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
             "id": "56a52797457437e3",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "image.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +109,24 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "image.md"
+                "file": "index.md"
+              }
+            }
+          },
+          {
+            "id": "013076bf55fdbd68",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
               }
             }
           }
@@ -148,6 +149,15 @@
   },
   "active": "4c87f34be763707d",
   "lastOpenFiles": [
+    "blender.md",
+    "index.md",
+    "old-wiki/Maya.md",
+    "old-wiki/Callback.md",
+    "3ds max.md",
+    "old-wiki/_Footer.md",
+    "old-wiki/Material-X.md",
+    "old-wiki/Python3-Snippets.md",
+    "Maya",
     "image/image-1680116357995.jpeg",
     "image/Pasted image 20230329195448.png-1680116173680.jpeg",
     "notes/image.md",
@@ -164,7 +174,6 @@
     "notes/image/Pasted image 20230329195453.png",
     "notes/image/Pasted image 20230329195448.png",
     "notes/image/Pasted image 20230329195443.png",
-    "notes/image/Pasted image 20230329195438.png",
     "notes/image/image",
     "notes/folder22/test2.md",
     "notes/index.md",
