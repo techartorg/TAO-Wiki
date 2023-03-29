@@ -17,37 +17,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
-      - name: checkout target repo (branch)
+      - name: checkout source repo (main branch)
+        uses: actions/checkout@v2
+        with: 
+          path: src_repo
+          
+      - name: checkout target repo (mkdocs branch)
         uses: actions/checkout@v2
         with: 
           path: dst_repo
           ref: mkdocs
 
-      # run janitor on markdown input
-      - uses: actions/setup-node@v2
+      - name: 1. install node for janitor
+        uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - uses: actions/checkout@v2
+          
+      - name: 2. checkout janitor
+        uses: actions/checkout@v2
         with:
           repository: 'hannesdelbeke/note-link-janitor'  # use fork to support subfolders
           ref: stable
           path: 'note-link-janitor'
-      - name: install yarn in janitor workspace
+          
+      - name: 3. install yarn in janitor workspace
         run: |
             cd ${{ github.workspace }}/note-link-janitor
             yarn install
             yarn run build
-      - name: Run Note Link Janitor
-        run: ${{ github.workspace }}/note-link-janitor/dist/index.js ${{ github.workspace }}/temp_submodule
+            
+      - name: 4. Run Note Link Janitor
+        run: ${{ github.workspace }}/note-link-janitor/dist/index.js ${{ github.workspace }}/src_repo/notes
 
       # first move image, then notes. # docs folder already exists, it contains css in assets
       - name: move submodule files to dst_repo
         run: |
             mkdir -p dst_repo/static/images/
-            mv temp_submodule/image/* dst_repo/static/images/
-            rm --force -r temp_submodule/.git
-            rsync -av temp_submodule/* dst_repo/docs/
-      # push repo
+            mv src_repo/notes/image/* dst_repo/static/images/
+            rsync -av src_repo/notes/* dst_repo/docs/
+        
       - name: push updates to mkdocs branch
         # uses: ad-m/github-push-action@master
         # with:
@@ -63,10 +71,12 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
+          
       - name: install py requirements
         run: |
             cd dst_repo
             pip install --requirement requirements.txt
+            
       - name: build mkdocs & deploy to github pages
         run: |
             cd dst_repo
