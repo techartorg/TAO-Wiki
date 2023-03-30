@@ -3,9 +3,9 @@
 > If you see this warning in Obsidian you opened the wrong folder `TAO-Wiki` in Obsidian as your vault.
 > Instead open the `notes` folder, not the folder you cloned the repo in which is `TAO-Wiki`
 > ```
-> TAO-Wiki
+> TAO-Wiki (you opened this one)
 > ├── README
-> └── notes/...
+> └── notes/... (instead use this)
 > ```
 
 
