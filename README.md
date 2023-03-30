@@ -12,6 +12,8 @@ This README is not included in the wiki, everything in the notes folder is inclu
 - The github page can be found on [https://techartorg.github.io/TAO-Wiki/](https://techartorg.github.io/TAO-Wiki/)
 
 ### Advanced edit with Obsidian
+⚠️ Obsidian settings & installed plugins are committed, carefull when editing them ⚠️ 
+
 1. fork and clone this repo
 2. install [Obsidian](https://obsidian.md/)
 3. Open the repo folder with obsidian.
