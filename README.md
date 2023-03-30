@@ -1,3 +1,9 @@
+
+> [!ERROR]
+> If you see this warning in Obsidian you open the wrong folder.
+> Open the notes folder, not the folder you cloned the repo in
+
+
 This repo hosts [https://techartorg.github.io/TAO-Wiki/](https://techartorg.github.io/TAO-Wiki/)
 
 This README is not included in the wiki, everything in the notes folder is included in the wiki.
