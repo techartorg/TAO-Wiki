@@ -1,0 +1,14 @@
+.comments {
+    display: none;
+}
+#right {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-weight: normal;
+}
+
+#u {
+	text-align: center;
+	display: block;
+}

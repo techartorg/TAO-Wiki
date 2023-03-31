@@ -1,0 +1,250 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 750px;
+                 height: 750px;
+                 background-color: transparent;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 750px;
+                 height: 750px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "3ds max", "label": "3ds max", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "index", "label": "index", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "blender", "label": "blender", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Unity", "label": "Unity", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Houdini", "label": "Houdini", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "3ds Max", "label": "3ds Max", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Maya", "label": "Maya", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Glossary-of-Terms", "label": "Glossary-of-Terms", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Python3-Snippets", "label": "Python3-Snippets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Unreal", "label": "Unreal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "How to make an actor that can Tick In Unreal Editor", "label": "How to make an actor that can Tick In Unreal Editor", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Tickable PySide2 Window BaseClass", "label": "Tickable PySide2 Window BaseClass", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "callback", "label": "callback", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Hysteresis", "label": "Hysteresis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Glossary of Terms", "label": "Glossary of Terms", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Houdini-Setting-up-a-studio-environment", "label": "Houdini-Setting-up-a-studio-environment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Drop-Selected-Model-To-Ground(or-closest-model-below)-(No-Colliders-Needed)", "label": "Drop-Selected-Model-To-Ground(or-closest-model-below)-(No-Colliders-Needed)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Spatializing", "label": "Spatializing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Serialization", "label": "Serialization", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Microservice", "label": "Microservice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Houdini-HDA-Naming-Conventions", "label": "Houdini-HDA-Naming-Conventions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "[Python]-Py3-Extract-icon-from-exe-and-save-as-png-(with-alpha)", "label": "[Python]-Py3-Extract-icon-from-exe-and-save-as-png-(with-alpha)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Python3 Snippets", "label": "Python3 Snippets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "[Python]-Py3-Find-latest-installed-program-on-system", "label": "[Python]-Py3-Find-latest-installed-program-on-system", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "uRPC", "label": "uRPC", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Prim", "label": "Prim", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Raymarching", "label": "Raymarching", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Callback", "label": "Callback", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Convolve", "label": "Convolve", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Foveation", "label": "Foveation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Qt", "label": "Qt", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Console-Threaded-WIP-animation", "label": "Console-Threaded-WIP-animation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Parse", "label": "Parse", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "test1", "label": "test1", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "test1b", "label": "test1b", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "test1c", "label": "test1c", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "test2", "label": "test2", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Migration Path", "label": "Migration Path", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Optical Flow", "label": "Optical Flow", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "ROMs (Range of Motion)", "label": "ROMs (Range of Motion)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Proc Hours", "label": "Proc Hours", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Unit Testing", "label": "Unit Testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Package Server", "label": "Package Server", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Virtual Function", "label": "Virtual Function", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Quantized Mesh", "label": "Quantized Mesh", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Plates (Facial-Capture Animation)", "label": "Plates (Facial-Capture Animation)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Vertex Stream", "label": "Vertex Stream", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "CPU- or GPU-Bound", "label": "CPU- or GPU-Bound", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Blob Detection", "label": "Blob Detection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Radial Sorting", "label": "Radial Sorting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "API (Application Programming Interface)", "label": "API (Application Programming Interface)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Event Listener", "label": "Event Listener", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Barycentric Coordinates", "label": "Barycentric Coordinates", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Geometry Shaders", "label": "Geometry Shaders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Cascade Pose Regression", "label": "Cascade Pose Regression", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Compute Shaders", "label": "Compute Shaders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Laplace Operator", "label": "Laplace Operator", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "MaterialX", "label": "MaterialX", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Smoke Testing", "label": "Smoke Testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Surface Shader", "label": "Surface Shader", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Sparse Volume", "label": "Sparse Volume", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Virtual Texture", "label": "Virtual Texture", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "VATs (Vertex Animation Textures)", "label": "VATs (Vertex Animation Textures)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Distance Field", "label": "Distance Field", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Quantized Quaternion", "label": "Quantized Quaternion", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Relaxed Cone Mapping", "label": "Relaxed Cone Mapping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Shadow Cache", "label": "Shadow Cache", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Spherical Harmonics", "label": "Spherical Harmonics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Texture Array", "label": "Texture Array", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "README", "label": "README", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "plugin", "label": "plugin", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "image", "label": "image", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Graph\ud83d\udd78\ufe0f", "label": "Graph\ud83d\udd78\ufe0f", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Untitled", "label": "Untitled", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "pymxs helpful snippets", "label": "pymxs helpful snippets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Optical-Flow", "label": "Optical-Flow", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Laplace-Operator", "label": "Laplace-Operator", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Shadow-Cache", "label": "Shadow-Cache", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "VATs-(Vertex-Animation-Textures)", "label": "VATs-(Vertex-Animation-Textures)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Surface-Shader", "label": "Surface-Shader", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Migration-Path", "label": "Migration-Path", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Quantized-Quaternion", "label": "Quantized-Quaternion", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "[Unreal]-How-to-make-an-actor-that-can-Tick-In-Editor", "label": "[Unreal]-How-to-make-an-actor-that-can-Tick-In-Editor", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Virtual-Texture", "label": "Virtual-Texture", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Compute-Shaders", "label": "Compute-Shaders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Blob-Detection", "label": "Blob-Detection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Material-X", "label": "Material-X", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Virtual-Function", "label": "Virtual-Function", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Barycentric-Coordinates", "label": "Barycentric-Coordinates", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Radial-Sorting", "label": "Radial-Sorting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Paired-Blend-Node", "label": "Paired-Blend-Node", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Unit-Testing", "label": "Unit-Testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Glossary-Template-Page", "label": "Glossary-Template-Page", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Plates-(Facial-Capture-Animation)", "label": "Plates-(Facial-Capture-Animation)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "_Footer", "label": "_Footer", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "ROMs-(Range-of-Motion)", "label": "ROMs-(Range-of-Motion)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Texture-Array", "label": "Texture-Array", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Relaxed-Cone-Mapping", "label": "Relaxed-Cone-Mapping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Quantized-Mesh", "label": "Quantized-Mesh", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Proc-Hours", "label": "Proc-Hours", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Geometry-Shaders", "label": "Geometry-Shaders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "API-(Application-Programming-Interface)", "label": "API-(Application-Programming-Interface)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "pymxs---Helpful-Snippets", "label": "pymxs---Helpful-Snippets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Max", "label": "Max", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Distance-Field", "label": "Distance-Field", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Home", "label": "Home", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Smoke-Testing", "label": "Smoke-Testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Event-Listener", "label": "Event-Listener", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Vertex-Stream", "label": "Vertex-Stream", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "CPU--or-GPU-Bound", "label": "CPU--or-GPU-Bound", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Package-Server", "label": "Package-Server", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "_Sidebar", "label": "_Sidebar", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Tickable-PySide2-Window-BaseClass", "label": "Tickable-PySide2-Window-BaseClass", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Sparse-Volume", "label": "Sparse-Volume", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Cascade-Pose-Regression", "label": "Cascade-Pose-Regression", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Spherical-Harmonics", "label": "Spherical-Harmonics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "MultiMarkdown", "label": "MultiMarkdown", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "tags", "label": "tags", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "test_tag", "label": "test_tag", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "\ud83d\udd10lock", "label": "\ud83d\udd10lock", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Jengy_Test", "label": "Jengy_Test", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Template Page", "label": "Template Page", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "#7c7c7c"}, "id": "Paired Blend Node", "label": "Paired Blend Node", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "3ds max", "to": "index", "width": 1}, {"from": "3ds max", "to": "3ds max", "width": 1}, {"from": "blender", "to": "index", "width": 1}, {"from": "blender", "to": "blender", "width": 1}, {"from": "index", "to": "Unity", "width": 1}, {"from": "index", "to": "Houdini", "width": 1}, {"from": "index", "to": "3ds Max", "width": 1}, {"from": "index", "to": "Maya", "width": 1}, {"from": "index", "to": "Glossary-of-Terms", "width": 1}, {"from": "index", "to": "Python3-Snippets", "width": 1}, {"from": "index", "to": "Unreal", "width": 1}, {"from": "3ds Max", "to": "3ds Max", "width": 1}, {"from": "Unreal", "to": "How to make an actor that can Tick In Unreal Editor", "width": 1}, {"from": "Unreal", "to": "Tickable PySide2 Window BaseClass", "width": 1}, {"from": "Unreal", "to": "Unreal", "width": 1}, {"from": "Maya", "to": "callback", "width": 1}, {"from": "Maya", "to": "Maya", "width": 1}, {"from": "Hysteresis", "to": "Glossary of Terms", "width": 1}, {"from": "Hysteresis", "to": "Hysteresis", "width": 1}, {"from": "Houdini-Setting-up-a-studio-environment", "to": "Houdini", "width": 1}, {"from": "Houdini-Setting-up-a-studio-environment", "to": "Houdini-Setting-up-a-studio-environment", "width": 1}, {"from": "Drop-Selected-Model-To-Ground(or-closest-model-below)-(No-Colliders-Needed)", "to": "Unity", "width": 1}, {"from": "Drop-Selected-Model-To-Ground(or-closest-model-below)-(No-Colliders-Needed)", "to": "Drop-Selected-Model-To-Ground(or-closest-model-below)-(No-Colliders-Needed)", "width": 1}, {"from": "Spatializing", "to": "Glossary of Terms", "width": 1}, {"from": "Spatializing", "to": "Spatializing", "width": 1}, {"from": "Python3-Snippets", "to": "Python3-Snippets", "width": 1}, {"from": "Serialization", "to": "Glossary of Terms", "width": 1}, {"from": "Serialization", "to": "Serialization", "width": 1}, {"from": "Microservice", "to": "Glossary of Terms", "width": 1}, {"from": "Microservice", "to": "Microservice", "width": 1}, {"from": "Houdini-HDA-Naming-Conventions", "to": "Houdini", "width": 1}, {"from": "Houdini-HDA-Naming-Conventions", "to": "Houdini-HDA-Naming-Conventions", "width": 1}, {"from": "[Python]-Py3-Extract-icon-from-exe-and-save-as-png-(with-alpha)", "to": "Python3 Snippets", "width": 1}, {"from": "[Python]-Py3-Find-latest-installed-program-on-system", "to": "Python3 Snippets", "width": 1}, {"from": "uRPC", "to": "Glossary of Terms", "width": 1}, {"from": "uRPC", "to": "uRPC", "width": 1}, {"from": "Prim", "to": "Glossary of Terms", "width": 1}, {"from": "Prim", "to": "Prim", "width": 1}, {"from": "Raymarching", "to": "Glossary of Terms", "width": 1}, {"from": "Raymarching", "to": "Raymarching", "width": 1}, {"from": "Callback", "to": "Glossary of Terms", "width": 1}, {"from": "Callback", "to": "Callback", "width": 1}, {"from": "Unity", "to": "Unity", "width": 1}, {"from": "Convolve", "to": "Glossary of Terms", "width": 1}, {"from": "Convolve", "to": "Convolve", "width": 1}, {"from": "Foveation", "to": "Glossary of Terms", "width": 1}, {"from": "Foveation", "to": "Foveation", "width": 1}, {"from": "Qt", "to": "Glossary of Terms", "width": 1}, {"from": "Qt", "to": "Qt", "width": 1}, {"from": "Console-Threaded-WIP-animation", "to": "Python3 Snippets", "width": 1}, {"from": "Console-Threaded-WIP-animation", "to": "Console-Threaded-WIP-animation", "width": 1}, {"from": "Glossary-of-Terms", "to": "Glossary-of-Terms", "width": 1}, {"from": "Parse", "to": "Glossary of Terms", "width": 1}, {"from": "Parse", "to": "Parse", "width": 1}, {"from": "Houdini", "to": "Houdini", "width": 1}, {"from": "test1", "to": "test1b", "width": 1}, {"from": "test1", "to": "test1c", "width": 1}, {"from": "test1", "to": "test2", "width": 1}, {"from": "test1", "to": "test1", "width": 1}, {"from": "test1b", "to": "test1b", "width": 1}, {"from": "Tickable PySide2 Window BaseClass", "to": "Tickable PySide2 Window BaseClass", "width": 1}, {"from": "Migration Path", "to": "Glossary of Terms", "width": 1}, {"from": "Migration Path", "to": "Migration Path", "width": 1}, {"from": "Optical Flow", "to": "Glossary of Terms", "width": 1}, {"from": "Optical Flow", "to": "Optical Flow", "width": 1}, {"from": "ROMs (Range of Motion)", "to": "Glossary of Terms", "width": 1}, {"from": "ROMs (Range of Motion)", "to": "ROMs (Range of Motion)", "width": 1}, {"from": "Proc Hours", "to": "Glossary of Terms", "width": 1}, {"from": "Proc Hours", "to": "Proc Hours", "width": 1}, {"from": "Unit Testing", "to": "Glossary of Terms", "width": 1}, {"from": "Unit Testing", "to": "Unit Testing", "width": 1}, {"from": "Package Server", "to": "Glossary of Terms", "width": 1}, {"from": "Package Server", "to": "Package Server", "width": 1}, {"from": "Virtual Function", "to": "Glossary of Terms", "width": 1}, {"from": "Virtual Function", "to": "Virtual Function", "width": 1}, {"from": "Quantized Mesh", "to": "Glossary of Terms", "width": 1}, {"from": "Quantized Mesh", "to": "Quantized Mesh", "width": 1}, {"from": "Plates (Facial-Capture Animation)", "to": "Glossary of Terms", "width": 1}, {"from": "Plates (Facial-Capture Animation)", "to": "Plates (Facial-Capture Animation)", "width": 1}, {"from": "Vertex Stream", "to": "Glossary of Terms", "width": 1}, {"from": "Vertex Stream", "to": "Vertex Stream", "width": 1}, {"from": "CPU- or GPU-Bound", "to": "Glossary of Terms", "width": 1}, {"from": "CPU- or GPU-Bound", "to": "CPU- or GPU-Bound", "width": 1}, {"from": "Blob Detection", "to": "Glossary of Terms", "width": 1}, {"from": "Blob Detection", "to": "Blob Detection", "width": 1}, {"from": "Radial Sorting", "to": "Glossary of Terms", "width": 1}, {"from": "Radial Sorting", "to": "Radial Sorting", "width": 1}, {"from": "API (Application Programming Interface)", "to": "Glossary of Terms", "width": 1}, {"from": "API (Application Programming Interface)", "to": "API (Application Programming Interface)", "width": 1}, {"from": "Event Listener", "to": "Glossary of Terms", "width": 1}, {"from": "Event Listener", "to": "Event Listener", "width": 1}, {"from": "Barycentric Coordinates", "to": "Glossary of Terms", "width": 1}, {"from": "Barycentric Coordinates", "to": "Barycentric Coordinates", "width": 1}, {"from": "Geometry Shaders", "to": "Glossary of Terms", "width": 1}, {"from": "Geometry Shaders", "to": "Geometry Shaders", "width": 1}, {"from": "Cascade Pose Regression", "to": "Glossary of Terms", "width": 1}, {"from": "Cascade Pose Regression", "to": "Cascade Pose Regression", "width": 1}, {"from": "Compute Shaders", "to": "Glossary of Terms", "width": 1}, {"from": "Compute Shaders", "to": "Compute Shaders", "width": 1}, {"from": "Laplace Operator", "to": "Glossary of Terms", "width": 1}, {"from": "Laplace Operator", "to": "Laplace Operator", "width": 1}, {"from": "MaterialX", "to": "Glossary of Terms", "width": 1}, {"from": "MaterialX", "to": "MaterialX", "width": 1}, {"from": "Smoke Testing", "to": "Glossary of Terms", "width": 1}, {"from": "Smoke Testing", "to": "Smoke Testing", "width": 1}, {"from": "Surface Shader", "to": "Glossary of Terms", "width": 1}, {"from": "Surface Shader", "to": "Surface Shader", "width": 1}, {"from": "Sparse Volume", "to": "Glossary of Terms", "width": 1}, {"from": "Sparse Volume", "to": "Sparse Volume", "width": 1}, {"from": "Virtual Texture", "to": "Glossary of Terms", "width": 1}, {"from": "Virtual Texture", "to": "Virtual Texture", "width": 1}, {"from": "VATs (Vertex Animation Textures)", "to": "Glossary of Terms", "width": 1}, {"from": "VATs (Vertex Animation Textures)", "to": "VATs (Vertex Animation Textures)", "width": 1}, {"from": "Distance Field", "to": "Glossary of Terms", "width": 1}, {"from": "Distance Field", "to": "Distance Field", "width": 1}, {"from": "Glossary of Terms", "to": "Quantized Quaternion", "width": 1}, {"from": "Glossary of Terms", "to": "Relaxed Cone Mapping", "width": 1}, {"from": "Glossary of Terms", "to": "Shadow Cache", "width": 1}, {"from": "Glossary of Terms", "to": "Spherical Harmonics", "width": 1}, {"from": "Glossary of Terms", "to": "Texture Array", "width": 1}, {"from": "Spherical Harmonics", "to": "Spherical Harmonics", "width": 1}, {"from": "Shadow Cache", "to": "Shadow Cache", "width": 1}, {"from": "Texture Array", "to": "Texture Array", "width": 1}, {"from": "Relaxed Cone Mapping", "to": "Relaxed Cone Mapping", "width": 1}, {"from": "Quantized Quaternion", "to": "Quantized Quaternion", "width": 1}, {"from": "Python3 Snippets", "to": "index", "width": 1}, {"from": "Python3 Snippets", "to": "Python3 Snippets", "width": 1}, {"from": "How to make an actor that can Tick In Unreal Editor", "to": "How to make an actor that can Tick In Unreal Editor", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
