@@ -6,5 +6,5 @@ Don't get set into one form, adapt it and build your own, and let it grow, be li
 -Bruce Lee
 
 Houdini Pipeline Docs
-* [[Houdini Setting up a studio environment]]
-* [[Houdini HDA Naming Conventions]] without a SQL database.
+- [[Houdini-Setting-up-a-studio-environment]]
+* [[Houdini-HDA-Naming-Conventions]] without a SQL database.

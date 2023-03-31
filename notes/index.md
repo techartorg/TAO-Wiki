@@ -9,5 +9,5 @@ maybe check out your favorite app?
 - [[Maya]]
 - [[blender]]
 - [[Glossary-of-Terms]]
-- [[Python3-Snippets]]
+- [[Python3 Snippets]]
 - [[Unreal]]

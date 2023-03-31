@@ -13,5 +13,5 @@ It's recommended to start experimenting line by line, in the Unreal Python conso
 
 ### Other 
 * A great resource for Unreal Python scripts, tips & tricks: https://unrealcommunity.wiki/
-* [[How to make an actor that can Tick In Editor.]]
+* [[How to make an actor that can Tick In Unreal Editor]]
 * [[Tickable PySide2 Window BaseClass]]

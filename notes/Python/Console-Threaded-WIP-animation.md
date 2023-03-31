@@ -5,7 +5,7 @@ It should be noted that you use `cursor_anim.start()` to start it and `cursor_an
 **Do not use the run function to start it as it will just loop forever** (and that is called by the `cursor_anim.start()`
 
 Setup is like 
-```
+```python
 cursor_anim = CursorAnimation()
 cursor_anim.wip_msg = "Doing a thing that takes a while..."
 cursor_anim.success_msg = "Successfully did the long thing!"
@@ -21,7 +21,7 @@ cursor_anim.stop(True)
 
 
 
-```
+```python
 import threading
 import time
 
